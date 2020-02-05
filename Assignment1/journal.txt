@@ -1,0 +1,4 @@
+The Battle Ship program has benefits if it implements the Strategic Design Pattern. The Strategic Design Pattern can be
+implemented by creating a interface and implementing the functions of the interface. Here we can give different functional
+-ities to different strategies and implement in the program. The disadvantages of using the Strategic Design Pattern is we
+should know all the Strategies which are to be executed, how and when they work.
