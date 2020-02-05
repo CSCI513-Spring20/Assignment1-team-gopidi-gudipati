@@ -8,6 +8,7 @@ public class BattleShips{
 	static int [][]game3 = new int[25][25];
 	int carrier =1;
 	int submarine =2;
+	static SearchShips searchships;
 	public void startgame(){
 	try {
 		FileReader inputFile = new FileReader("src//input.txt");
@@ -75,12 +76,54 @@ public class BattleShips{
 		}
 		System.out.println();
 	}
+	public void setStrategy(SearchShips strategy){
+		searchships = strategy;
+	}
+	
+	public void fndShips(SearchShips strategy,int [][]game){	
+		strategy.findShips(game);
+		
+	}
 	public static void main(String args[]) {
 		BattleShips bash = new BattleShips();
-		bash.startgame();
-		bash.showgame(game1,"Game 1");
-		bash.showgame(game2,"Game 2");
-		bash.showgame(game3,"Game 3");
+		bash.startgame(); // Starting the game
 		
+		bash.showgame(game1,"Game 1"); // This is game 1
+		HorizontalSweepStrtegy hss = new HorizontalSweepStrtegy();
+		bash.setStrategy(hss);
+		bash.fndShips(hss, game1);
+		RandomSearchStrategy rss = new RandomSearchStrategy();
+		bash.setStrategy(rss);
+		bash.fndShips(rss, game1);
+		StrategicSearch ss = new StrategicSearch();
+		bash.setStrategy(ss);
+		bash.fndShips(ss, game1);
+		System.out.println("________________________________________________________________________________");
+		System.out.println();
+		
+		bash.showgame(game2,"Game 2");
+		HorizontalSweepStrtegy hss1 = new HorizontalSweepStrtegy();
+		bash.setStrategy(hss1);
+		bash.fndShips(hss1, game2);
+		RandomSearchStrategy rss1 = new RandomSearchStrategy();
+		bash.setStrategy(rss1);
+		bash.fndShips(rss1, game2);
+		StrategicSearch ss1 = new StrategicSearch();
+		bash.setStrategy(ss1);
+		bash.fndShips(ss1, game2);
+		System.out.println("________________________________________________________________________________");
+		System.out.println();
+	
+		bash.showgame(game3,"Game 3");
+		HorizontalSweepStrtegy hss2 = new HorizontalSweepStrtegy();
+		bash.setStrategy(hss2);
+		bash.fndShips(hss2, game3);
+		RandomSearchStrategy rss2 = new RandomSearchStrategy();
+		bash.setStrategy(rss2);
+		bash.fndShips(rss2, game3);
+		StrategicSearch ss2 = new StrategicSearch();
+		bash.setStrategy(ss2);
+		bash.fndShips(ss2, game3);
+			
 	}
 }
