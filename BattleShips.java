@@ -11,7 +11,7 @@ public class BattleShips{
 	static SearchShips searchships;
 	public void startgame(){
 	try {
-		FileReader inputFile = new FileReader("src//input.txt");
+		FileReader inputFile = new FileReader("Assignment1//input.txt");
 		BufferedReader reader = new BufferedReader(inputFile);
 			
 			for(int i=0;i<=2;i++) {
