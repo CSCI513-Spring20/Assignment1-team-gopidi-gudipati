@@ -15,8 +15,8 @@ public class HorizontalSweepStrtegy implements SearchShips{
 	public void findShips(int game[][]) {
 		int counter =0; // total number of cells searched
 		int count = 0;
-		String carr=""; // concatinating the carrier strings.
-		String sub = ""; // concatinating the submarines strings.
+		String carr=""; // Concatenating the carrier strings.
+		String sub = ""; // Concatenating the submarines strings.
 		//System.out.println("Horizontal is implemented"+ game);
 		for(int i=0 ; i<25; i++) {
 			for(int j =0; j<25;j++) {
@@ -24,6 +24,7 @@ public class HorizontalSweepStrtegy implements SearchShips{
 					//System.out.print(" Found Carrier at ("+i+","+j+") ");
 					String a = "("+i+","+j+")";
 					carr = carr.concat(a);
+					count++;
 				}
 				
 				else if(game[i][j]==2) {
@@ -32,7 +33,7 @@ public class HorizontalSweepStrtegy implements SearchShips{
 					sub = sub.concat(b);
 					count++;
 				}
-				if(count==3) {
+				if(count==8) {
 					break;
 				}
 				else {
